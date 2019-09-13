@@ -18,18 +18,19 @@ void ofApp::update(){
 void ofApp::draw(){
   float spinX = sin(ofGetElapsedTimef()*.35f);
   float spinY = cos(ofGetElapsedTimef()*.075f);
-  
+
   float screenWidth = ofGetWidth();
   float screenHeight = ofGetHeight();
-  cylinder.setPosition(  -screenWidth * .5 + screenWidth *  2/4.f, screenHeight * -1.1/6.f, 0);
-  
+
+  cylinder.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
+
   // Cylinder //
 //    if (mode == 3) {
 //        topCap = cylinder.getTopCapMesh();
 //        bottomCap = cylinder.getBottomCapMesh();
 //        body = cylinder.getCylinderMesh();
 //    }
-    
+
   cylinder.rotateDeg(spinX, 1.0, 0.0, 0.0);
   cylinder.rotateDeg(spinY, 0, 1.0, 0.0);
 //  if (bFill) {
