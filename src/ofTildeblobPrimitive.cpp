@@ -232,7 +232,7 @@ glm::vec3 ofTildeblobPrimitive::getResolution() const {
 
 //--------------------------------------------------------------
 float ofTildeblobPrimitive::getHeight() const {
-    return height;
+    return height * 2;
 }
 
 //--------------------------------------------------------------
