@@ -6,7 +6,7 @@ void ofApp::setup(){
   float width     = ofGetWidth() * .12;
   float height    = ofGetHeight() * .12;
   
-  cylinder.set(width*.7, height*2.2);
+  tildeblob.set(width*.7, height*2.2);
 }
 
 //--------------------------------------------------------------
@@ -24,23 +24,23 @@ void ofApp::draw(){
   float screenHeight = ofGetHeight();
 
   // setPosition(float px, float py, float pz)
-//  cylinder.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
+//  tildeblob.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
 
-  cylinder.setPosition(  290, 290, 0);
-  // Cylinder //
+  tildeblob.setPosition(  290, 290, 0);
+  // Tildeblob (copied from Cylinder) //
 //    if (mode == 3) {
-//        topCap = cylinder.getTopCapMesh();
-//        bottomCap = cylinder.getBottomCapMesh();
-//        body = cylinder.getCylinderMesh();
+//        topCap = tildeblob.getTopCapMesh();
+//        bottomCap = tildeblob.getBottomCapMesh();
+//        body = tildeblob.getCylinderMesh();
 //    }
 
-  cylinder.rotateDeg(spinX, 1.0, 0.0, 0.0);
-  cylinder.rotateDeg(spinY, 0, 1.0, 0.0);
+  tildeblob.rotateDeg(spinX, 1.0, 0.0, 0.0);
+  tildeblob.rotateDeg(spinY, 0, 1.0, 0.0);
 //  if (bFill) {
       material.begin();
       ofFill();
 //      if (mode == 3) {
-          cylinder.transformGL();
+          tildeblob.transformGL();
           ofPushMatrix(); {
               if (topCap.getNumNormals() > 0) {
                   ofTranslate(topCap.getNormal(0) * (cos(ofGetElapsedTimef() * 5) + 1)*.5f * 100);
@@ -58,10 +58,10 @@ void ofApp::draw(){
               ofScale(scale, scale, scale);
               body.draw();
           } ofPopMatrix();
-          cylinder.restoreTransformGL();
+          tildeblob.restoreTransformGL();
 //      }
 //      else {
-//          cylinder.draw();
+//          tildeblob.draw();
 //      }
       material.end();
 //  }
@@ -69,9 +69,9 @@ void ofApp::draw(){
 //  if (bWireframe) {
       ofNoFill();
       ofSetColor(255,20,147);
-      cylinder.setScale(1.01f);
-      cylinder.drawWireframe();
-      cylinder.setScale(1.0f);
+      tildeblob.setScale(1.01f);
+      tildeblob.drawWireframe();
+      tildeblob.setScale(1.0f);
 //  }
 }
 

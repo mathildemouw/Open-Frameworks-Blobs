@@ -22,7 +22,7 @@ class ofApp : public ofBaseApp{
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    ofTildeblobPrimitive cylinder;
+    ofTildeblobPrimitive tildeblob;
     ofMaterial material;
 
     // place to store the sides of the box //
