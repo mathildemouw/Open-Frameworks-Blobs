@@ -2,11 +2,15 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+  bFill       = false;
+  bWireframe  = true;
 
   float width     = ofGetWidth() * .12;
   float height    = ofGetHeight() * .12;
-  
+
   tildeblob.set(width*.7, height*2.2);
+
+  mode = 0;
 }
 
 //--------------------------------------------------------------
@@ -24,22 +28,25 @@ void ofApp::draw(){
   float screenHeight = ofGetHeight();
 
   // setPosition(float px, float py, float pz)
-//  tildeblob.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
+  // tildeblob.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
+  tildeblob.setPosition(290, 290, 0);
 
-  tildeblob.setPosition(  290, 290, 0);
   // Tildeblob (copied from Cylinder) //
-//    if (mode == 3) {
-//        topCap = tildeblob.getTopCapMesh();
-//        bottomCap = tildeblob.getBottomCapMesh();
-//        body = tildeblob.getCylinderMesh();
-//    }
+  // TODO: clarify what TopCapMesh, BottomCapMesh, and CylinderMesh are
+  //  and why we only have to get them in mode 3
+    if (mode == 3) {
+        topCap = tildeblob.getTopCapMesh();
+        bottomCap = tildeblob.getBottomCapMesh();
+        body = tildeblob.getCylinderMesh();
+    }
 
   tildeblob.rotateDeg(spinX, 1.0, 0.0, 0.0);
   tildeblob.rotateDeg(spinY, 0, 1.0, 0.0);
-//  if (bFill) {
+
+  if (bFill) {
       material.begin();
       ofFill();
-//      if (mode == 3) {
+      if (mode == 3) {
           tildeblob.transformGL();
           ofPushMatrix(); {
               if (topCap.getNumNormals() > 0) {
@@ -59,20 +66,20 @@ void ofApp::draw(){
               body.draw();
           } ofPopMatrix();
           tildeblob.restoreTransformGL();
-//      }
-//      else {
-//          tildeblob.draw();
-//      }
+      }
+      else {
+          tildeblob.draw();
+      }
       material.end();
-//  }
-  
-//  if (bWireframe) {
+  }
+
+  if (bWireframe) {
       ofNoFill();
       ofSetColor(255,20,147);
       tildeblob.setScale(1.01f);
       tildeblob.drawWireframe();
       tildeblob.setScale(1.0f);
-//  }
+  }
 }
 
 //--------------------------------------------------------------

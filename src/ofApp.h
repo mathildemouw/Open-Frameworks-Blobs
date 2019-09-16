@@ -22,6 +22,11 @@ class ofApp : public ofBaseApp{
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
+    bool bFill;
+    bool bWireframe;
+
+    int mode;
+
     ofTildeblobPrimitive tildeblob;
     ofMaterial material;
 
