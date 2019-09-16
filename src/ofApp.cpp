@@ -16,14 +16,17 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+  ofDrawBitmapString("Check out the shape!", 80, 80);
   float spinX = sin(ofGetElapsedTimef()*.35f);
   float spinY = cos(ofGetElapsedTimef()*.075f);
 
   float screenWidth = ofGetWidth();
   float screenHeight = ofGetHeight();
 
-  cylinder.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
+  // setPosition(float px, float py, float pz)
+//  cylinder.setPosition(  -screenWidth * .3 + screenWidth *  2/4.f, screenHeight * -.1/9.f, 0);
 
+  cylinder.setPosition(  290, 290, 0);
   // Cylinder //
 //    if (mode == 3) {
 //        topCap = cylinder.getTopCapMesh();
@@ -65,7 +68,7 @@ void ofApp::draw(){
   
 //  if (bWireframe) {
       ofNoFill();
-      ofSetColor(0, 0, 0);
+      ofSetColor(255,20,147);
       cylinder.setScale(1.01f);
       cylinder.drawWireframe();
       cylinder.setScale(1.0f);
